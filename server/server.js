@@ -22,6 +22,8 @@ const startServer = async () => {
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 };
 
+startServer();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -31,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build'));
+  res.sendFile(path.join(__dirname, '../client/src'));
 })
 
 // app.use(routes);
