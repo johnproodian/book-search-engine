@@ -5,6 +5,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        // works
         me: async (parent, args, context) => {
             console.log(context.user);
             if (context.user) {
@@ -17,16 +18,55 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         } 
+
+        // getSingleUser --> or is that me??
+
     },
 
     Mutation: {
+        // works
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
             return { user, token };
-        }
+        },
+        // works
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
 
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+            return { token, user };
+
+        },
+        // saveBook
+        saveBook: async (parents, args, context) => {
+            if (context.user) {
+                const book = await Book.create({ ...args, username: context.user.username })
+
+                await User.findByIdAndUpdate(
+                    {_id: context.user._id },
+                    { $push: { books: book._id } },
+                    { new: true }
+                );
+
+                return book;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        // deleteBook
         
 
     }
