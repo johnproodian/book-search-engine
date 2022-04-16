@@ -51,23 +51,39 @@ const resolvers = {
         },
         // saveBook
         saveBook: async (parents, args, context) => {
+            console.log(context.user.username);
             if (context.user) {
-                const book = await Book.create({ ...args, username: context.user.username })
+                const book = await Book.create({...args, username: context.user.username})
+                
+                await console.log(book);
 
-                await User.findByIdAndUpdate(
-                    {_id: context.user._id },
-                    { $push: { books: book._id } },
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { savedBooks: book } },
                     { new: true }
                 );
+                console.log(updatedUser)
 
-                return book;
+                return updatedUser;
             }
 
             throw new AuthenticationError('You need to be logged in!');
         },
 
         // deleteBook
-        
+        deleteBook: async(parents, args, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedBooks: { bookId: args.bookId }} },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+
+            
+
+        }
 
     }
 };
