@@ -34,10 +34,7 @@ const SignupForm = () => {
     try {
       const { data } = await addUser({
         variables: { ...userFormData }
-      });
-      
-      
-      
+      })
       // const response = await createUser(userFormData);
 
       // if (!response.ok) {
@@ -113,6 +110,7 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
+      { error && <div>Signup failed</div>}
 
     </>
   );

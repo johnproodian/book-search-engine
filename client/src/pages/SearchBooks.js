@@ -49,6 +49,8 @@ const SearchBooks = () => {
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
 
+      console.log(bookData);
+
       setSearchedBooks(bookData);
       setSearchInput('');
     } catch (err) {
@@ -60,6 +62,8 @@ const SearchBooks = () => {
   const handleSaveBook = async (bookId) => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
+    console.log(bookToSave);
+
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;

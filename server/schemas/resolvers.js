@@ -55,7 +55,7 @@ const resolvers = {
             if (context.user) {
                 const book = await Book.create({...args, username: context.user.username})
                 
-                await console.log(book);
+                console.log(book);
 
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
