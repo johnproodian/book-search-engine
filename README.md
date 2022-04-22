@@ -15,4 +15,4 @@ The purpose of this challenge was to take a fully functioning book search engine
 * MongoDB
 
 ## Link
-* [Heroku](https://sleepy-woodland-19590.herokuapp.com/)
+* [Book Search Engine on Heroku](https://sleepy-woodland-19590.herokuapp.com/)
