@@ -67,6 +67,7 @@ const SearchBooks = () => {
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log('token:' + token);
 
     if (!token) {
       return false;
@@ -74,11 +75,13 @@ const SearchBooks = () => {
 
     try {
       const response = await saveBook({
-        variables: { bookToSave }
+        variables: { bookData: { ...bookToSave }}
       });
+      console.log('response: ' + response);
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+    
     } catch (err) {
       console.error(err);
     }
