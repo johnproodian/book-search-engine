@@ -2,7 +2,7 @@
 
 This is a Google Books API search engine built with a GraphQL API on an Apollo Server. 
 
-The purpose of this praoject was to take a fully functioning book search engine that was built with a RESTful API and refactor it to use a GraphQL API.
+The purpose of this project was to take a fully functioning book search engine that was built with a RESTful API and refactor it to use a GraphQL API.
 
 ## Screenshots
 *![Book Search Engine Screen Shot](./assets/bookSearchPic1.png)
