@@ -14,5 +14,5 @@ The purpose of this challenge was to take a fully functioning book search engine
 * React
 * MongoDB
 
-## Link
+## Website
 * [Book Search Engine on Heroku](https://sleepy-woodland-19590.herokuapp.com/)
