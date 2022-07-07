@@ -12,7 +12,8 @@ The purpose of this project was to take a fully functioning book search engine t
 ## Built With
 * JavaScript
 * React
-* MongoDB
+* NoSQL/MongoDB
+* Mongoose
 * JWT
 * GraphQL
 * Apollo Server
