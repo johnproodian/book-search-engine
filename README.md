@@ -18,7 +18,7 @@ The purpose of this project was to take a fully functioning book search engine t
 * Apollo Server
 
 ## Website
-* [Book Search Engine on Heroku](https://sleepy-woodland-19590.herokuapp.com/)
+* https://sleepy-woodland-19590.herokuapp.com/
 
 ## (Recently Learned) Skills I Used
 * creating an Apollo Server and applying it to an Express.js server as middleware
