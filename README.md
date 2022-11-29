@@ -19,7 +19,7 @@ The purpose of this project was to take a fully functioning book search engine t
 * Apollo Server
 
 ## Website
-* https://sleepy-woodland-19590.herokuapp.com/
+* https://book-search-engine.up.railway.app/
 
 ## (Recently Learned) Skills I Used
 * Creating an Apollo Server and applying it to an Express.js server as middleware
@@ -27,4 +27,4 @@ The purpose of this project was to take a fully functioning book search engine t
 * Creating an Apollo Provider so that requests can communicate with an Apollo server
 * Building API endpoints with GraphQL in a MERN application
 * Using GraphQL queries and mutations to fetch and modify server-side data
-* Configuring and deploying a MERN application to Heroku
+* Configuring and deploying a MERN application to Heroku (and, later, Railway)
